@@ -1,4 +1,4 @@
-FROM node:6.1.0
+FROM node:6.2.0
 MAINTAINER Wang Zishi <ynh.2@outlook.com>
 COPY . /usr/src
 WORKDIR /usr/src
