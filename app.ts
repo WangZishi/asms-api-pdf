@@ -7,10 +7,10 @@ const jsonBody = require('body/json');
 
 const server = http.createServer(async (req, res) => {
 
-    if (req.method === 'GET' && req.url === '/health') {
+    if (req.method === 'GET' && req.url === 'api/v2/pdf/health') {
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify({ status: 'ok' }));
-    } else if (req.method === 'POST' && req.url === '/pdf') {
+    } else if (req.method === 'POST' && req.url === 'api/v2/pdf') {
         if (req.headers['content-type'] !== 'application/json' &&
             req.headers['content-type'] !== 'application/x-www-form-urlencoded') {
             res.statusCode = 415;
