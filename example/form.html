@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body onload="document.getElementsByName('html')[0].value=encodeURIComponent(document.getElementsByName('pdf')[0].outerHTML.replace(/>\s*</gi, '><'))">
+    <div name="pdf">
+        <h2>Test Title</h2>
+        <table>
+            <tr>
+                <th>tile-1</th>
+                <th>tile-2</th>
+                <th>tile-3</th>
+                <th>tile-4</th>
+                <th>tile-5</th>
+                <th>tile-6</th>
+                <th>tile-7</th>
+                <th>tile-8</th>
+                <th>tile-9</th>
+                <th>tile-10</th>
+            </tr>
+            <tr>
+                <td>cell-1-1</td>
+                <td>cell-1-2</td>
+                <td>cell-1-3</td>
+                <td>cell-1-4</td>
+                <td>cell-1-5</td>
+                <td>cell-1-6</td>
+                <td>cell-1-7</td>
+                <td>cell-1-8</td>
+                <td>cell-1-9</td>
+                <td>cell-1-10</td>
+            </tr>
+            <tr>
+                <td>cell-2-1</td>
+                <td>cell-2-2</td>
+                <td>cell-2-3</td>
+                <td>cell-2-4</td>
+                <td>cell-2-5</td>
+                <td>cell-2-6</td>
+                <td>cell-2-7</td>
+                <td>cell-2-8</td>
+                <td>cell-2-9</td>
+                <td>cell-2-10</td>
+            </tr>
+            <tr>
+                <td>cell-3-1</td>
+                <td>cell-3-2</td>
+                <td>cell-3-3</td>
+                <td>cell-3-4</td>
+                <td>cell-3-5</td>
+                <td>cell-3-6</td>
+                <td>cell-3-7</td>
+                <td>cell-3-8</td>
+                <td>cell-3-9</td>
+                <td>cell-3-10</td>
+            </tr>
+            <tr>
+                <td>cell-4-1</td>
+                <td>cell-4-2</td>
+                <td>cell-4-3</td>
+                <td>cell-4-4</td>
+                <td>cell-4-5</td>
+                <td>cell-4-6</td>
+                <td>cell-4-7</td>
+                <td>cell-4-8</td>
+                <td>cell-4-9</td>
+                <td>cell-4-10</td>
+            </tr>
+        </table>
+    </div>
+
+    <form action="http://180.76.151.86:3000/pdf" method="POST">
+        <input name="html" type="text">
+        <input name="options" type="text">
+        <input type="submit" value="Export PDF">
+    </form>
+</body>
+
+</html>

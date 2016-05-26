@@ -1,0 +1,9 @@
+version: '2'
+services:
+    web:
+        image: nodejs-app:1.0.0
+        build: .
+        ports:
+         - "3000:3000"
+         - "5858:5858"
+        command: debug

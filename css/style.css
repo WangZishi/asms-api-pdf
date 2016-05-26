@@ -1,0 +1,267 @@
+/************** 头部 ************/
+
+#header{width:1200px;/*height:125px;*/margin:0 auto; background:#01c8a9;}
+
+.logo{float:left;width:548px;height:68px; margin:9px 20px;}
+
+
+
+/*用户信息*/
+
+#cssdropdown{float:right;}
+
+#cssdropdown li {float: left;position: relative;}
+
+.mainitems a{color:#fff;}
+
+.subuls{display: none;width: 10em;position: absolute;top: 1.2em;right: 0;background:#fff;border: 1px solid #888;box-shadow: 0 0 .2em rgba(0,0,0,0.4); -moz-box-shadow: 0 0 .2em rgba(0,0,0,0.4); -webkit-box-shadow: 0 0 .2em rgba(0,0,0,0.4); }
+
+.subuls li{width: 100%; line-height:40px; padding-left:30px;}
+
+.subuls li a{text-decoration:none;color:#333;}
+
+.subuls li a:hover{text-decoration:none;color:#06b398;}
+
+#cssdropdown li>ul { /* to override top and left in browsers other than IE, which will position to the top right of the containing li, rather than bottom left */
+
+top: auto;left: auto;}
+
+#cssdropdown li:hover ul, li.over ul { /* lists nested under hovered list items */
+
+display: block;}
+
+.user_icon1{ background:url(../images/icon_user.gif) no-repeat left top; }
+
+.user_icon2{background:url(../images/icon_user.gif) no-repeat left bottom;}
+
+
+
+/*导航菜单*/
+
+.nav{ background:#06b398; height:45px; line-height:45px; width:100%; clear:both;}
+
+.nav li{ float:left; padding:0px 30px; display:block; border-right:1px solid #06a088;}
+
+.nav li a{ color:#fff;}
+
+.nav li a:hover{color:#0efed9; }
+
+
+
+/************中间*************/
+
+#main{width:1140px;background:#ffffff;margin:0 auto;padding:30px;}
+
+/*详细查询*/
+
+#panel {display: none; clear:both; } 
+
+.slide {border-top: solid 1px #eee; } 
+
+.btn-slide { background: #eee url(../images/arrow.gif) no-repeat right -50px;; text-align: center; width: 124px; height: 30px; padding: 7px 10px 0 0; float:right; display: block;color: #888; text-decoration: none; } 
+
+.active { background-position: right 12px; } 
+
+/************底部*************/
+
+#footer{width:1200px;background:#01c8a9;margin:0 auto; color:#fff; line-height:30px; text-align:center; padding:30px 0px;}
+
+
+
+/*弹层*/
+
+.alertWindow1{width: 100%;height: 100%; background:rgba(0,0,0,0.5);position: fixed; left:0px; top: 0px; z-index: 9999;}
+
+.alertWindowBg{width: 661px; height: 398px;background: url(../images/alertTip_bg.png);margin: 80px auto;}
+
+.alertWindowCloseButton1{float: right; width: 20px; height: 20px;margin-right:20px;margin-top:20px;font-size:20px;color:#FF7C00;cursor: pointer;}
+
+.alertWindowTitle{margin-top:20px;text-align:center;font-family:microsoft yahei;font-size: 22px;font-weight: bold;margin-bottom:20px;border-bottom:2px solid #ff7c00;padding-bottom:10px; margin-left:30px;margin-right:30px;color:#FF7C00;}
+
+.alertWindowContent{width:580px;height: 130px;padding-left:30px;padding-right:30px;padding-top:20px;text-align:left;font-size: 16px; line-height:30px;color: #fff;}
+
+.tipsbutton{font-family:microsoft yahei;width: 120px;height: 40px;border:none;position: relative;bottom: 18px;font-size:18px;color:#FFFFFF;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;cursor: pointer;background:#FF7C00;}
+
+
+
+/*结果列表*/
+
+.list li{ background:url(../images/icon_list.gif) no-repeat left center; line-height:30px; height:30px; padding-left:35px;}
+
+
+
+/*表格*/
+
+.resultTable td{ border:1px solid #888;padding:0 10px; text-align:center;}
+
+.resultTable th{ background:#56627f; color:#fff; border:1px solid #000;}
+
+
+
+/*滚动月份*/
+
+.SCR{text-align:center; }
+
+.SCRyear{ display:block; height:36px; line-height:36px; border:1px solid #000; background:url(../images/SCRmonth_bg.gif) repeat-x left center; color:#fff;}
+
+.SCR li{ background:#fafafa; height:24px; line-height:24px;}
+
+.SCR li.SCRcurmonth{ height:24px; line-height:24px; border:1px solid #000; background:#eee; font-weight:bold;}
+
+.SCR li.SCRdismonth{ color:#888;}
+
+/*------工作台------*/
+
+.workplat{ width:977px; margin:30px auto 30px auto;}
+
+.workT,.workB{ display:block; width:977px;}
+
+.workT{ background:url(../images/work_top_bg.gif) no-repeat left top; height:80px;}
+
+.workB{ background:url(../images/work_bot_bg.gif) no-repeat left top; height:22px;}
+
+.workM{ background:url(../images/work_mid_bg.gif) repeat-y left top; padding:20px 50px 50px 50px; width:877px;}
+
+.workLi_l,.workLi_r,.workLi_l_on,.workLi_r_on{ display:block; float:left; width:64px; height:35px; line-height:35px; cursor:pointer; color:#fff; text-align:center;}
+
+.workLi_l{ background:url(../images/work_li_l.png);}
+
+.workLi_l_on{ background:url(../images/work_li_l_on.png);}
+
+.workLi_r{ background:url(../images/work_li_r.png);}
+
+.workLi_r_on{ background:url(../images/work_li_r_on.png);}
+
+.yearpre,.yearnext{ width:42px; height:36px; display:block; float:left;}
+
+a.yearpre{ background:url(../images/yearpre.png);}
+
+a.yearpre:hover{ background:url(../images/yearpre_hover.png);}
+
+a.yearpre:active{ background:url(../images/yearpre_active.png);}
+
+a.yearnext{ background:url(../images/yearnext.png);}
+
+a.yearnext:hover{ background:url(../images/yearnext_hover.png);}
+
+a.yearnext:active{ background:url(../images/yearnext_active.png);}
+
+
+
+.tubiao li{ float:left; margin-right:20px;}
+
+.tubiao li span{ width:12px; height:12px; margin-right:5px; display:block; float:left;margin-top:3px;}
+
+.icon_gray{ background:#ececec; border:1px solid #888888 !important;} 
+
+.icon_orange{ background:#fff0bd; border:1px solid #cb8b00 !important;} 
+
+.icon_blue{ background:#b2e4f7; border:1px solid #0090ff !important;} 
+
+.icon_green{ background:#c1f9d0; border:1px solid #008706 !important;} 
+
+.icon_white{ background:#fff;} 
+
+
+
+.monthtable1 td{ border:1px solid #888; height:100px; vertical-align:text-bottom; font-size:20px;padding:15px;}
+
+.inf{ background:#fff; position:relative; padding:10px; margin-top:15px;}
+
+.inf .infs{ background:url(../images/icon_inf.png) no-repeat 0px 0px; display:block; width:22px; height:20px;position:absolute; left:10px; top:-10px;}
+
+.monthtable2 td{ border:1px solid #888; height:70px; vertical-align:text-bottom; font-size:20px;padding:5px;}
+
+
+
+
+
+/*登录*/
+
+#login_header{ width:100%; background:#fff; height:120px;}
+#login_header .logo2{width:1200px; margin:0 auto; padding-top:10px;}
+#login_main{width:100%;height:520px;margin:0 auto;background:url(../images/login_bg.gif) no-repeat center bottom #a2f3f7;}
+.login_main1{width:1200px;height:467px;position:relative;margin:0 auto;}
+.login_box{width:330px;position:absolute;right:50px;top:55px; background:#fff;}
+.password{background:url(../images/login_password.png) no-repeat 5px;}
+.login_pad{padding:10px 0;display:block;}
+.sub_1{background:#40a8ff;border:none;width:275px;height:37px;padding:5px 0;cursor:pointer;font-size:18px;color:#fff;font-family: "Microsoft YaHei";}
+.sub_2{background:#cbcbcb;border:none;width:275px;height:37px;padding:5px 0;cursor:default;font-size:18px;color:#fff;font-family: "Microsoft YaHei";}
+#login_footer{ text-align:center; padding:30px 0px;background:#fff;}
+#login_footer div{width:1200px;margin:0 auto 0;text-align:center;line-height:30px;}
+.login_input{padding-left:30px; width:170px; height:35px; line-height:35px;font-family: "Microsoft YaHei",Tahoma,Arial,sans-serif; font-size:14px; color:#666; border:1px solid #bbb; vertical-align:middle;}
+
+.mbbox{  width:330px; height:50px; line-height:50px;}
+.mbbox li{ width:165px; height:50px;float:left;display:block;text-align:center;cursor:pointer; margin-right:0px;background:#ededed;color:#000;font:normal 120%/2.5 "微软雅黑","宋体", Arial, sans-serif;}
+.mbbox .hover{background:#1d1a35;width:165px; height:50px;color:#fff;}
+.conbox{ clear:both; width:290px;overflow:hidden;padding:20px 20px;}
+.password{ background:url(../images/login_password_icon.gif) no-repeat 5px center;}
+.key{ background:url(../images/login_key_icon.gif) no-repeat 5px center;}
+a.passwordno{ color:#4ca8fd; text-decoration:none;}
+a.passwordno:hover{ color:#4ca8fd; text-decoration:underline;}
+
+
+.login_word{font-size:12px; line-height:30px;}
+
+.login_word a{ text-decoration:underline; color:#03F;}
+
+.login_word a:hover{ text-decoration:underline; color:#f00;}
+
+
+
+/*归集*/
+
+.guiji{ background:url(../images/gj_bg.gif) no-repeat left top; width:830px; height:200px; line-height:50px; margin:0 auto; padding:48px 100px 0px 100px; font-size:18px;}
+
+a.underline{ color:#d75452;}
+
+a.underline:hover{ text-decoration:underline; color:#d75452;}
+
+.download{width:1000px;line-height:50px; margin:0 auto;}
+
+.download li { background:url(../images/file.png) no-repeat left center; line-height:50px; padding-left:50px; border-bottom:1px dotted #ddd; float:left; width:450px;}
+
+.download li a{font-size:18px; text-decoration:none;}
+
+.download li a:hover{ text-decoration:underline;}
+
+/*第一次登录*/
+
+#first {position: fixed;top: 0px;left: 0px;bottom: 0px;right: 0px;z-index:10;}
+
+.land {background:#fff;width:790px;position: position; top:50px; box-shadow: 0 0 .1em rgba(0,0,0,0.4); -moz-box-shadow: 0 0 .1em rgba(0,0,0,0.4); -webkit-box-shadow: 0 0 .1em rgba(0,0,0,0.4);background-color: rgba(255,255,255,0.5);}
+
+.land {width: 790px;position: relative;margin-left: -425px;left: 50%; padding:30px; background:url(../images/70bg.png) repeat left top;  }
+
+
+
+.bg {position: fixed;top: 0px;left: 0px;bottom: 0px;right: 0px;z-index:1;}
+
+.bg img {width: 100%;height: 100%;}
+
+.icon_girl_s{ background:url(../images/icon_girl_s.png) no-repeat left top; width:100%;}
+
+.user_on{ color:#fff; float:right; margin-right:20px; font-size:12px;margin-top:20px;}
+.user_on a{ color:#fff;}
+.user_on a:hover{color:#0efed9; }
+
+
+/*模拟对角线*/
+.out{
+   border-top:7em #56627f solid;/*上边框宽度等于表格第一行行高*/
+   border-left:20em #ffffff solid;/*左边框宽度等于表格第一行第一格宽度*/
+   position:relative;/*让里面的两个子容器绝对定位*/
+}
+b{font-style:normal;display:block;position:absolute;top:-4em;left:-45px;}
+em{font-style:normal;display:block;position:absolute;top:-5em;left:-270px;}
+
+
+.tab_box{width:100%;clear: both;margin-top:20px;}
+.tbbox{  width:100%; height:30px; line-height:30px;border-bottom: 1px solid #56627f;}
+.tbbox li{ width:165px; height:30px;float:left;display:block;text-align:center;cursor:pointer; margin-right:0px;background:#f1f1f1;color:#000;font:normal 120%/1.6 "微软雅黑","宋体", Arial, sans-serif;}
+.tbbox .hover{background:#56627f;width:165px; height:30px;color:#fff;}
+.conbox2{ clear:both; width:100%;overflow:hidden;padding:20px 0px;}
+
+/*忘记密码*/
+a.for_key{color:#999;margin-left:45px; font-size: 12px;}
+a.for_key:hover{color: #333; text-decoration: none;}
