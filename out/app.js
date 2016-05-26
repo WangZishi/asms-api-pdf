@@ -12,11 +12,11 @@ const pdf = require('html-pdf');
 const formBody = require('body/form');
 const jsonBody = require('body/json');
 const server = http.createServer((req, res) => __awaiter(this, void 0, void 0, function* () {
-    if (req.method === 'GET' && req.url === '/health') {
+    if (req.method === 'GET' && req.url === '/api/v2/pdf/health') {
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify({ status: 'ok' }));
     }
-    else if (req.method === 'POST' && req.url === '/pdf') {
+    else if (req.method === 'POST' && req.url === '/api/v2/pdf') {
         if (req.headers['content-type'] !== 'application/json' &&
             req.headers['content-type'] !== 'application/x-www-form-urlencoded') {
             res.statusCode = 415;
