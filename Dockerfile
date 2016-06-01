@@ -1,3 +1,4 @@
+# Version: 1.0.2.dev
 FROM node:6.2.0
 MAINTAINER Wang Zishi <ynh.2@outlook.com>
 COPY . /usr/src
