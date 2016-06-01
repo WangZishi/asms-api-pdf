@@ -27,7 +27,8 @@ const server = http.createServer((req, res) => __awaiter(this, void 0, void 0, f
                 let filename = options.filename || 'render';
                 try {
                     pdf.create(html, {
-                        format: 'A4'
+                        height: '297mm',
+                        width: '210mm'
                     }).toStream((err, stream) => {
                         if (!!err)
                             res.end(err);

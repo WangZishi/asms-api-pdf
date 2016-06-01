@@ -21,7 +21,8 @@ const server = http.createServer(async (req, res) => {
                     let filename = options.filename || 'render';
                     try {
                         pdf.create(html, {
-                            format: 'A4'
+                            height: '297mm',
+                            width: '210mm'
                         }).toStream((err, stream: NodeJS.ReadableStream) => {
                             if (!!err) res.end(err);
                             else {
@@ -55,5 +56,5 @@ const server = http.createServer(async (req, res) => {
         res.end();
     }
 });
-server.listen(3001);
-console.log('Listening on port 3001...');
+server.listen(3000);
+console.log('Listening on port 3000...');
