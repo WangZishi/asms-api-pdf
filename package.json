@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "install": "typings install",
-    "start": "pm2 start out/app.js --name=\"pdf api\" --no-daemon",
+    "start": "pm2 start out/app.js --name=\"pdf api\" ",
     "prestart": "npm run tsc",
     "pm2": "pm2",
     "debug": "node --debug-brk --nolazy out/app.js",
