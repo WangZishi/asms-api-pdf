@@ -18,7 +18,7 @@ const server = http.createServer((req, res) => {
             let body, html, options, generatePdf = (html, options, res) => {
                 let filename = options.filename || 'render';
                 try {
-                    // console.log({ filename, html });
+                    console.log({ filename: filename, html: html });
                     pdf.create(html, {
                         height: '297mm',
                         width: '210mm'
