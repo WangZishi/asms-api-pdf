@@ -24,11 +24,16 @@ const server = http.createServer((req, res) => {
                     })
                         .toStream((err, stream) => {
                         if (!!err)
-                            res.end(err);
+                        {
+				console.log('!!!!', err);
+				res.end(err);
+			}
                         else {
+			    console.log('writable:', res.writable);
                             res.setHeader('Content-Type', 'application/pdf');
                             res.setHeader('Content-Disposition', `attachment;filename="${filename}.pdf"`);
-                            stream.pipe(res);
+                            res.end();
+				// stream.pipe(res);
                         }
                     });
                 }
