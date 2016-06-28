@@ -53,6 +53,6 @@ const server = http.createServer((req, res) => {
         res.end();
     }
 });
-server.listen(3000);
-console.log('Listening on port 3000...');
+server.listen(3001);
+console.log('Listening on port 3001...');
 //# sourceMappingURL=app.js.map
