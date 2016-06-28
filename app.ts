@@ -20,7 +20,7 @@ const server = http.createServer((req, res) => {
                 generatePdf = (html, options, res: http.ServerResponse) => {
                     let filename = options.filename || 'render';
                     try {
-                        console.log({ filename, html });
+                        // console.log({ filename, html });
                         pdf.create(html, {
                             height: '297mm',
                             width: '210mm'
@@ -34,7 +34,7 @@ const server = http.createServer((req, res) => {
                             //     }
                             // });
                             .toBuffer((err, buffer: Buffer) => {
-                                console.log({ err, buffer });
+                                // console.log({ err, buffer });
                                 console.log(res.writable);
                             });
                     } catch (error) {
@@ -53,7 +53,7 @@ const server = http.createServer((req, res) => {
                 formBody(req, res, (err, body) => {
                     body.html = decodeURIComponent(body.html);
                     body.options = JSON.parse(body.options);
-                    console.log({ formOptions: body.options });
+                    console.log({ formHtml: body.html, formOptions: body.options });
                     generatePdf(body.html, body.options, res);
                 });
             }
