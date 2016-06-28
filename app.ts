@@ -17,46 +17,42 @@ const server = http.createServer((req, res) => {
             res.end();
         } else {
             let body: { html: string, options: any }, html: string, options: string,
-                generatePdf = (html, options, callback: (err, buffer: Buffer) => void) => {
+                generatePdf = (html, options, res: http.ServerResponse) => {
                     let filename = options.filename || 'render';
-                    // try {
-                    // console.log({ filename, html });
-                    pdf.create(html, { height: '297mm', width: '210mm' })
-                        .toBuffer((err, buffer: Buffer) => {
-                            // console.log({ err, buffer });
-                            callback(err, buffer);
-                            console.log(res.writable);
-                        });
-                    // .toStream((err, stream: NodeJS.ReadableStream) => {
-                    //     if (!!err) res.end(err);
-                    //     else {
-                    //         res.setHeader('Content-Type', 'application/pdf');
-                    //         res.setHeader('Content-Disposition', `attachment;filename="${filename}.pdf"`);
-                    //         stream.pipe(res);
-                    //     }
-                    // });
-                    // } catch (error) {
-                    //     console.log({ error });
-                    //     res.statusCode = 500;
-                    //     res.setHeader('Content-Type', 'application/json');
-                    //     res.end(JSON.stringify({ error: error.message }));
-                    // }
+                    try {
+                        pdf.create(html, {
+                            height: '297mm',
+                            width: '210mm'
+                        })
+                            .toStream((err, stream: NodeJS.ReadableStream) => {
+                                if (!!err) res.end(err);
+                                else {
+                                    res.setHeader('Content-Type', 'application/pdf');
+                                    res.setHeader('Content-Disposition', `attachment;filename="${filename}.pdf"`);
+                                    stream.pipe(res);
+                                }
+                            });
+                        // .toBuffer((err, buffer: Buffer) => {
+                        //     console.log({ buffer });
+                        //     console.log(res.writable);
+                        // });
+                    } catch (error) {
+                        res.statusCode = 500;
+                        res.setHeader('Content-Type', 'application/json');
+                        res.end(JSON.stringify({ error: error.message }));
+                    }
                 };
             if (req.headers['content-type'] === 'application/json')
                 jsonBody(req, res, (err, body) => {
                     console.log({ jsonBody: body });
-                    generatePdf(body.html, body.options, (err, buffer) => {
-
-                    });
+                    generatePdf(body.html, body.options, res);
                 });
             else {
                 formBody(req, res, (err, body) => {
                     body.html = decodeURIComponent(body.html);
                     body.options = JSON.parse(body.options);
-                    console.log({ formHtml: body.html, formOptions: body.options });
-                    generatePdf(body.html, body.options, (err, buffer) => {
-                        console.log({ err, buffer });
-                    });
+                    console.log({ formOptions: body.options });
+                    generatePdf(body.html, body.options, res);
                 });
             }
         }
