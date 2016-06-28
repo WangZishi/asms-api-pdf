@@ -18,13 +18,13 @@ const server = http.createServer((req, res) => {
             let body, html, options, generatePdf = (html, options, res) => {
                 let filename = options.filename || 'render';
                 try {
-                    console.log({ filename: filename, html: html });
+                    // console.log({ filename, html });
                     pdf.create(html, {
                         height: '297mm',
                         width: '210mm'
                     })
                         .toBuffer((err, buffer) => {
-                        console.log({ buffer: buffer });
+                        console.log({ err: err, buffer: buffer });
                         console.log(res.writable);
                     });
                 }
