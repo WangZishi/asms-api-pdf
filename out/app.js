@@ -18,26 +18,18 @@ const server = http.createServer((req, res) => {
             let body, html, options, generatePdf = (html, options, res) => {
                 let filename = options.filename || 'render';
                 try {
+                    console.log({ filename: filename, html: html });
                     pdf.create(html, {
                         height: '297mm',
                         width: '210mm'
                     })
-                        .toStream((err, stream) => {
-                        if (!!err)
-                        {
-				console.log('!!!!', err);
-				res.end(err);
-			}
-                        else {
-			    console.log('writable:', res.writable);
-                            res.setHeader('Content-Type', 'application/pdf');
-                            res.setHeader('Content-Disposition', `attachment;filename="${filename}.pdf"`);
-                            res.end();
-				// stream.pipe(res);
-                        }
+                        .toBuffer((err, buffer) => {
+                        console.log({ buffer: buffer });
+                        console.log(res.writable);
                     });
                 }
                 catch (error) {
+                    console.log({ error: error });
                     res.statusCode = 500;
                     res.setHeader('Content-Type', 'application/json');
                     res.end(JSON.stringify({ error: error.message }));
