@@ -1,17 +1,9 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator.throw(value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments)).next());
-    });
-};
 const http = require('http');
 const pdf = require('html-pdf');
 const formBody = require('body/form');
 const jsonBody = require('body/json');
-const server = http.createServer((req, res) => __awaiter(this, void 0, void 0, function* () {
+const server = http.createServer((req, res) => {
     if (req.method === 'GET' && req.url === '/api/v2/pdf/health') {
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify({ status: 'ok' }));
@@ -29,14 +21,10 @@ const server = http.createServer((req, res) => __awaiter(this, void 0, void 0, f
                     pdf.create(html, {
                         height: '297mm',
                         width: '210mm'
-                    }).toStream((err, stream) => {
-                        if (!!err)
-                            res.end(err);
-                        else {
-                            res.setHeader('Content-Type', 'application/pdf');
-                            res.setHeader('Content-Disposition', `attachment;filename="${filename}.pdf"`);
-                            stream.pipe(res);
-                        }
+                    })
+                        .toBuffer((err, buffer) => {
+                        console.log({ buffer: buffer });
+                        console.log(res.writable);
                     });
                 }
                 catch (error) {
@@ -64,7 +52,7 @@ const server = http.createServer((req, res) => __awaiter(this, void 0, void 0, f
         res.statusCode = 404;
         res.end();
     }
-}));
-server.listen(3001);
-console.log('Listening on port 3001...');
+});
+server.listen(3000);
+console.log('Listening on port 3000...');
 //# sourceMappingURL=app.js.map

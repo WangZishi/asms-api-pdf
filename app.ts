@@ -5,7 +5,7 @@ const pdf = require('html-pdf');
 const formBody = require('body/form');
 const jsonBody = require('body/json');
 
-const server = http.createServer(async (req, res) => {
+const server = http.createServer((req, res) => {
 
     if (req.method === 'GET' && req.url === '/api/v2/pdf/health') {
         res.setHeader('Content-Type', 'application/json');
@@ -17,20 +17,25 @@ const server = http.createServer(async (req, res) => {
             res.end();
         } else {
             let body: { html: string, options: any }, html: string, options: string,
-                generatePdf = (html, options, res) => {
+                generatePdf = (html, options, res: http.ServerResponse) => {
                     let filename = options.filename || 'render';
                     try {
                         pdf.create(html, {
                             height: '297mm',
                             width: '210mm'
-                        }).toStream((err, stream: NodeJS.ReadableStream) => {
-                            if (!!err) res.end(err);
-                            else {
-                                res.setHeader('Content-Type', 'application/pdf');
-                                res.setHeader('Content-Disposition', `attachment;filename="${filename}.pdf"`);
-                                stream.pipe(res);
-                            }
-                        });
+                        })
+                            // .toStream((err, stream: NodeJS.ReadableStream) => {
+                            //     if (!!err) res.end(err);
+                            //     else {
+                            //         res.setHeader('Content-Type', 'application/pdf');
+                            //         res.setHeader('Content-Disposition', `attachment;filename="${filename}.pdf"`);
+                            //         stream.pipe(res);
+                            //     }
+                            // });
+                            .toBuffer((err, buffer: Buffer) => {
+                                console.log({ buffer });
+                                console.log(res.writable);
+                            });
                     } catch (error) {
                         res.statusCode = 500;
                         res.setHeader('Content-Type', 'application/json');
