@@ -24,18 +24,18 @@ const server = http.createServer((req, res) => {
                             height: '297mm',
                             width: '210mm'
                         })
-                            // .toStream((err, stream: NodeJS.ReadableStream) => {
-                            //     if (!!err) res.end(err);
-                            //     else {
-                            //         res.setHeader('Content-Type', 'application/pdf');
-                            //         res.setHeader('Content-Disposition', `attachment;filename="${filename}.pdf"`);
-                            //         stream.pipe(res);
-                            //     }
-                            // });
-                            .toBuffer((err, buffer: Buffer) => {
-                                console.log({ buffer });
-                                console.log(res.writable);
+                            .toStream((err, stream: NodeJS.ReadableStream) => {
+                                if (!!err) res.end(err);
+                                else {
+                                    res.setHeader('Content-Type', 'application/pdf');
+                                    res.setHeader('Content-Disposition', `attachment;filename="${filename}.pdf"`);
+                                    stream.pipe(res);
+                                }
                             });
+                            // .toBuffer((err, buffer: Buffer) => {
+                            //     console.log({ buffer });
+                            //     console.log(res.writable);
+                            // });
                     } catch (error) {
                         res.statusCode = 500;
                         res.setHeader('Content-Type', 'application/json');

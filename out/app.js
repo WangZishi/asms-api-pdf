@@ -22,9 +22,14 @@ const server = http.createServer((req, res) => {
                         height: '297mm',
                         width: '210mm'
                     })
-                        .toBuffer((err, buffer) => {
-                        console.log({ buffer: buffer });
-                        console.log(res.writable);
+                        .toStream((err, stream) => {
+                        if (!!err)
+                            res.end(err);
+                        else {
+                            res.setHeader('Content-Type', 'application/pdf');
+                            res.setHeader('Content-Disposition', `attachment;filename="${filename}.pdf"`);
+                            stream.pipe(res);
+                        }
                     });
                 }
                 catch (error) {
