@@ -1,5 +1,5 @@
-# Version: 1.0.2.dev
-FROM node:6.2.0
+# Version: 1.1.0.dev
+FROM node:6.3.0
 MAINTAINER Wang Zishi <ynh.2@outlook.com>
 COPY . /usr/src
 WORKDIR /usr/src
