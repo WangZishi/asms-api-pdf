@@ -1,4 +1,4 @@
-# Version: 1.1.0.dev
+# Version: 1.1.1.dev
 FROM node:6.3.0
 MAINTAINER Wang Zishi <ynh.2@outlook.com>
 COPY . /usr/src
