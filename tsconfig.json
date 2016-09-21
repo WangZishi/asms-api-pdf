@@ -10,6 +10,7 @@
     },
     "files": [
         "typings/main.d.ts",
-        "app.ts"
+        "app.ts",
+        "scripts/pdf_a4_portrait.ts"
     ]
 }

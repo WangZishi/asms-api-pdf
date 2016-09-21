@@ -50,7 +50,9 @@ const server = http.createServer((req, res) => {
             else {
                 formBody(req, res, (err, body) => {
                     body.html = decodeURIComponent(body.html);
+                    body.html = body.html + `<script></script>`;
                     body.options = JSON.parse(body.options);
+                    body.options.script = `${__dirname}/scripts/pdf_a4_portrait.js`;
                     console.log({ formOptions: body.options });
                     generatePdf(body.html, body.options, res);
                 });
